@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <q-layout view="lHh Lpr lFf">
+    <q-header>
+      <q-toolbar>
+        <q-toolbar-title>
+          Gestão de Produtos e Vendas
+        </q-toolbar-title>
+        <q-btn flat label="Home" @click="navigateToHome" />
+        <q-btn flat label="Produtos" @click="navigateToProducts" />
+        <q-btn flat label="Vendas" @click="navigateToSales" />
+      </q-toolbar>
+    </q-header>
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods: {
+    navigateToHome() {
+      this.$router.push('/')
+    },
+    navigateToProducts() {
+      this.$router.push('/products')
+    },
+    navigateToSales() {
+      this.$router.push('/sales')
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* Adicione seus estilos aqui, se necessário */
 </style>
